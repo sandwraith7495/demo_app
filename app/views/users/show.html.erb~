@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+<strong>Content:</strong>
+	<br>
+  <%= Post.where("user_id = ?", @users.user_id).find_each do |post| %>
+	
+	+ <%= post.content %><br>
+	<% end %>
